@@ -1,0 +1,497 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BEC5ED351AC9DF1800C6CA97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED341AC9DF1800C6CA97 /* main.m */; };
+		BEC5ED381AC9DF1800C6CA97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */; };
+		BEC5ED3B1AC9DF1800C6CA97 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED3A1AC9DF1800C6CA97 /* ViewController.m */; };
+		BEC5ED3E1AC9DF1800C6CA97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC5ED3C1AC9DF1800C6CA97 /* Main.storyboard */; };
+		BEC5ED401AC9DF1800C6CA97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC5ED3F1AC9DF1800C6CA97 /* Images.xcassets */; };
+		BEC5ED431AC9DF1800C6CA97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEC5ED411AC9DF1800C6CA97 /* LaunchScreen.xib */; };
+		BEC5ED4F1AC9DF1800C6CA97 /* MultiSigTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED4E1AC9DF1800C6CA97 /* MultiSigTests.m */; };
+		D17B95A8EE47065C2E1F7CE9 /* libPods-MultiSig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C564B1695F97314361FE8FB3 /* libPods-MultiSig.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEC5ED491AC9DF1800C6CA97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEC5ED271AC9DF1800C6CA97 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEC5ED2E1AC9DF1800C6CA97;
+			remoteInfo = MultiSig;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		19FE5B6438AA8196934A3225 /* Pods-MultiSig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSig/Pods-MultiSig.debug.xcconfig"; sourceTree = "<group>"; };
+		BEC5ED2F1AC9DF1800C6CA97 /* MultiSig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSig.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEC5ED331AC9DF1800C6CA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEC5ED341AC9DF1800C6CA97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BEC5ED361AC9DF1800C6CA97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BEC5ED391AC9DF1800C6CA97 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BEC5ED3A1AC9DF1800C6CA97 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BEC5ED3D1AC9DF1800C6CA97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BEC5ED3F1AC9DF1800C6CA97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BEC5ED421AC9DF1800C6CA97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BEC5ED481AC9DF1800C6CA97 /* MultiSigTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiSigTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEC5ED4D1AC9DF1800C6CA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEC5ED4E1AC9DF1800C6CA97 /* MultiSigTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiSigTests.m; sourceTree = "<group>"; };
+		C564B1695F97314361FE8FB3 /* libPods-MultiSig.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MultiSig.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFB8A4CC31571CBBBBD1BA30 /* Pods-MultiSig.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSig.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSig/Pods-MultiSig.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEC5ED2C1AC9DF1800C6CA97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D17B95A8EE47065C2E1F7CE9 /* libPods-MultiSig.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEC5ED451AC9DF1800C6CA97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B3F4B727B14B51CA2C123213 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				19FE5B6438AA8196934A3225 /* Pods-MultiSig.debug.xcconfig */,
+				EFB8A4CC31571CBBBBD1BA30 /* Pods-MultiSig.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BEC5ED261AC9DF1800C6CA97 = {
+			isa = PBXGroup;
+			children = (
+				BEC5ED311AC9DF1800C6CA97 /* MultiSig */,
+				BEC5ED4B1AC9DF1800C6CA97 /* MultiSigTests */,
+				BEC5ED301AC9DF1800C6CA97 /* Products */,
+				B3F4B727B14B51CA2C123213 /* Pods */,
+				DE6DCFE0B768F24D430C8E69 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BEC5ED301AC9DF1800C6CA97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEC5ED2F1AC9DF1800C6CA97 /* MultiSig.app */,
+				BEC5ED481AC9DF1800C6CA97 /* MultiSigTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEC5ED311AC9DF1800C6CA97 /* MultiSig */ = {
+			isa = PBXGroup;
+			children = (
+				BEC5ED361AC9DF1800C6CA97 /* AppDelegate.h */,
+				BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */,
+				BEC5ED391AC9DF1800C6CA97 /* ViewController.h */,
+				BEC5ED3A1AC9DF1800C6CA97 /* ViewController.m */,
+				BEC5ED3C1AC9DF1800C6CA97 /* Main.storyboard */,
+				BEC5ED3F1AC9DF1800C6CA97 /* Images.xcassets */,
+				BEC5ED411AC9DF1800C6CA97 /* LaunchScreen.xib */,
+				BEC5ED321AC9DF1800C6CA97 /* Supporting Files */,
+			);
+			path = MultiSig;
+			sourceTree = "<group>";
+		};
+		BEC5ED321AC9DF1800C6CA97 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BEC5ED331AC9DF1800C6CA97 /* Info.plist */,
+				BEC5ED341AC9DF1800C6CA97 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BEC5ED4B1AC9DF1800C6CA97 /* MultiSigTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEC5ED4E1AC9DF1800C6CA97 /* MultiSigTests.m */,
+				BEC5ED4C1AC9DF1800C6CA97 /* Supporting Files */,
+			);
+			path = MultiSigTests;
+			sourceTree = "<group>";
+		};
+		BEC5ED4C1AC9DF1800C6CA97 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BEC5ED4D1AC9DF1800C6CA97 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE6DCFE0B768F24D430C8E69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C564B1695F97314361FE8FB3 /* libPods-MultiSig.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEC5ED2E1AC9DF1800C6CA97 /* MultiSig */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEC5ED521AC9DF1800C6CA97 /* Build configuration list for PBXNativeTarget "MultiSig" */;
+			buildPhases = (
+				6BC73FD4EB5C003DA2B99E73 /* Check Pods Manifest.lock */,
+				BEC5ED2B1AC9DF1800C6CA97 /* Sources */,
+				BEC5ED2C1AC9DF1800C6CA97 /* Frameworks */,
+				BEC5ED2D1AC9DF1800C6CA97 /* Resources */,
+				0AD53886C096E0C934E0472B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MultiSig;
+			productName = MultiSig;
+			productReference = BEC5ED2F1AC9DF1800C6CA97 /* MultiSig.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEC5ED471AC9DF1800C6CA97 /* MultiSigTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEC5ED551AC9DF1800C6CA97 /* Build configuration list for PBXNativeTarget "MultiSigTests" */;
+			buildPhases = (
+				BEC5ED441AC9DF1800C6CA97 /* Sources */,
+				BEC5ED451AC9DF1800C6CA97 /* Frameworks */,
+				BEC5ED461AC9DF1800C6CA97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEC5ED4A1AC9DF1800C6CA97 /* PBXTargetDependency */,
+			);
+			name = MultiSigTests;
+			productName = MultiSigTests;
+			productReference = BEC5ED481AC9DF1800C6CA97 /* MultiSigTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEC5ED271AC9DF1800C6CA97 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "William Emmanuel";
+				TargetAttributes = {
+					BEC5ED2E1AC9DF1800C6CA97 = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 3Q6NJ58278;
+					};
+					BEC5ED471AC9DF1800C6CA97 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = BEC5ED2E1AC9DF1800C6CA97;
+					};
+				};
+			};
+			buildConfigurationList = BEC5ED2A1AC9DF1800C6CA97 /* Build configuration list for PBXProject "MultiSig" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEC5ED261AC9DF1800C6CA97;
+			productRefGroup = BEC5ED301AC9DF1800C6CA97 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEC5ED2E1AC9DF1800C6CA97 /* MultiSig */,
+				BEC5ED471AC9DF1800C6CA97 /* MultiSigTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEC5ED2D1AC9DF1800C6CA97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEC5ED3E1AC9DF1800C6CA97 /* Main.storyboard in Resources */,
+				BEC5ED431AC9DF1800C6CA97 /* LaunchScreen.xib in Resources */,
+				BEC5ED401AC9DF1800C6CA97 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEC5ED461AC9DF1800C6CA97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0AD53886C096E0C934E0472B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSig/Pods-MultiSig-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BC73FD4EB5C003DA2B99E73 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEC5ED2B1AC9DF1800C6CA97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEC5ED3B1AC9DF1800C6CA97 /* ViewController.m in Sources */,
+				BEC5ED381AC9DF1800C6CA97 /* AppDelegate.m in Sources */,
+				BEC5ED351AC9DF1800C6CA97 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEC5ED441AC9DF1800C6CA97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEC5ED4F1AC9DF1800C6CA97 /* MultiSigTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEC5ED4A1AC9DF1800C6CA97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEC5ED2E1AC9DF1800C6CA97 /* MultiSig */;
+			targetProxy = BEC5ED491AC9DF1800C6CA97 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BEC5ED3C1AC9DF1800C6CA97 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEC5ED3D1AC9DF1800C6CA97 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BEC5ED411AC9DF1800C6CA97 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEC5ED421AC9DF1800C6CA97 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BEC5ED501AC9DF1800C6CA97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BEC5ED511AC9DF1800C6CA97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEC5ED531AC9DF1800C6CA97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19FE5B6438AA8196934A3225 /* Pods-MultiSig.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = MultiSig/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		BEC5ED541AC9DF1800C6CA97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFB8A4CC31571CBBBBD1BA30 /* Pods-MultiSig.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = MultiSig/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		BEC5ED561AC9DF1800C6CA97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MultiSigTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiSig.app/MultiSig";
+			};
+			name = Debug;
+		};
+		BEC5ED571AC9DF1800C6CA97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MultiSigTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiSig.app/MultiSig";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEC5ED2A1AC9DF1800C6CA97 /* Build configuration list for PBXProject "MultiSig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEC5ED501AC9DF1800C6CA97 /* Debug */,
+				BEC5ED511AC9DF1800C6CA97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEC5ED521AC9DF1800C6CA97 /* Build configuration list for PBXNativeTarget "MultiSig" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEC5ED531AC9DF1800C6CA97 /* Debug */,
+				BEC5ED541AC9DF1800C6CA97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEC5ED551AC9DF1800C6CA97 /* Build configuration list for PBXNativeTarget "MultiSigTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEC5ED561AC9DF1800C6CA97 /* Debug */,
+				BEC5ED571AC9DF1800C6CA97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BEC5ED271AC9DF1800C6CA97 /* Project object */;
+}
