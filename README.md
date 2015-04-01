@@ -8,3 +8,5 @@ and open xcode with `open MultiSig.xcworkspace`
 [ios qr encoder](https://www.cocoacontrols.com/controls/objqrencoder)
 
 [tutorial for reading qr codes w/ av foundation](http://www.appcoda.com/qr-code-reader-swift/)
+
+[core bitcoin library](https://github.com/oleganza/CoreBitcoin) - might be needed for key pair generation?
