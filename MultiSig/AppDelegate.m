@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <coinbase-official/Coinbase.h>
+#import <coinbase-official/CoinbaseOAuth.h>
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -41,6 +43,36 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+// For OAuth
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    if ([[url scheme] isEqualToString:@"edu.self.multisig.coinbase-oauth"]) {
+        // This is a redirect from the Coinbase OAuth web page or app.
+        [CoinbaseOAuth finishOAuthAuthenticationForUrl:url
+                                              clientId:@"api_id"
+                                          clientSecret:@"api_secret"
+                                            completion:^(id result, NSError *error) {
+                                                if (error) {
+                                                    NSLog(@"Error with authentication");
+                                                } else {
+                                                    // Tokens successfully obtained!
+                                                    // Do something with them (store them, etc.)
+                                                    Coinbase *apiClient = [Coinbase coinbaseWithOAuthAccessToken:[result objectForKey:@"access_token"]];
+                                                    LoginViewController *controller = (LoginViewController *)[(UINavigationController *)self.window.rootViewController visibleViewController];
+                                                    [controller didFinishAuthentication:apiClient];
+                                                    // Note that you should also store 'expire_in' and refresh the token using [CoinbaseOAuth getOAuthTokensForRefreshToken] when it expires
+                                                    NSLog(@"Success");
+                                                }
+                                            }];
+        return YES;
+    }
+    return NO;
+    
 }
 
 @end

@@ -3,6 +3,7 @@
 
 target 'MultiSig' do
   pod "coinbase-official"
+  pod 'CoreBitcoin', :podspec => 'https://raw.github.com/oleganza/CoreBitcoin/master/CoreBitcoin.podspec'
 end
 
 target 'MultiSigTests' do

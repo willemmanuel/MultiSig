@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE25DC471AD2189F00D67D46 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE25DC451AD2189F00D67D46 /* LaunchScreen.xib */; };
+		BE25DC4A1AD219D900D67D46 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE25DC491AD219D900D67D46 /* WelcomeViewController.m */; };
 		BEC5ED351AC9DF1800C6CA97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED341AC9DF1800C6CA97 /* main.m */; };
 		BEC5ED381AC9DF1800C6CA97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */; };
-		BEC5ED3B1AC9DF1800C6CA97 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED3A1AC9DF1800C6CA97 /* ViewController.m */; };
+		BEC5ED3B1AC9DF1800C6CA97 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED3A1AC9DF1800C6CA97 /* LoginViewController.m */; };
 		BEC5ED3E1AC9DF1800C6CA97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEC5ED3C1AC9DF1800C6CA97 /* Main.storyboard */; };
 		BEC5ED401AC9DF1800C6CA97 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEC5ED3F1AC9DF1800C6CA97 /* Images.xcassets */; };
-		BEC5ED431AC9DF1800C6CA97 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEC5ED411AC9DF1800C6CA97 /* LaunchScreen.xib */; };
 		BEC5ED4F1AC9DF1800C6CA97 /* MultiSigTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED4E1AC9DF1800C6CA97 /* MultiSigTests.m */; };
 		D17B95A8EE47065C2E1F7CE9 /* libPods-MultiSig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C564B1695F97314361FE8FB3 /* libPods-MultiSig.a */; };
 /* End PBXBuildFile section */
@@ -29,16 +30,18 @@
 
 /* Begin PBXFileReference section */
 		19FE5B6438AA8196934A3225 /* Pods-MultiSig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSig/Pods-MultiSig.debug.xcconfig"; sourceTree = "<group>"; };
+		BE25DC461AD2189F00D67D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		BE25DC481AD219D900D67D46 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		BE25DC491AD219D900D67D46 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		BEC5ED2F1AC9DF1800C6CA97 /* MultiSig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC5ED331AC9DF1800C6CA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC5ED341AC9DF1800C6CA97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BEC5ED361AC9DF1800C6CA97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BEC5ED391AC9DF1800C6CA97 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BEC5ED3A1AC9DF1800C6CA97 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BEC5ED391AC9DF1800C6CA97 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		BEC5ED3A1AC9DF1800C6CA97 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		BEC5ED3D1AC9DF1800C6CA97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEC5ED3F1AC9DF1800C6CA97 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		BEC5ED421AC9DF1800C6CA97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BEC5ED481AC9DF1800C6CA97 /* MultiSigTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiSigTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC5ED4D1AC9DF1800C6CA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC5ED4E1AC9DF1800C6CA97 /* MultiSigTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiSigTests.m; sourceTree = "<group>"; };
@@ -99,11 +102,13 @@
 			children = (
 				BEC5ED361AC9DF1800C6CA97 /* AppDelegate.h */,
 				BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */,
-				BEC5ED391AC9DF1800C6CA97 /* ViewController.h */,
-				BEC5ED3A1AC9DF1800C6CA97 /* ViewController.m */,
+				BEC5ED391AC9DF1800C6CA97 /* LoginViewController.h */,
+				BEC5ED3A1AC9DF1800C6CA97 /* LoginViewController.m */,
 				BEC5ED3C1AC9DF1800C6CA97 /* Main.storyboard */,
+				BE25DC481AD219D900D67D46 /* WelcomeViewController.h */,
+				BE25DC491AD219D900D67D46 /* WelcomeViewController.m */,
+				BE25DC451AD2189F00D67D46 /* LaunchScreen.xib */,
 				BEC5ED3F1AC9DF1800C6CA97 /* Images.xcassets */,
-				BEC5ED411AC9DF1800C6CA97 /* LaunchScreen.xib */,
 				BEC5ED321AC9DF1800C6CA97 /* Supporting Files */,
 			);
 			path = MultiSig;
@@ -227,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEC5ED3E1AC9DF1800C6CA97 /* Main.storyboard in Resources */,
-				BEC5ED431AC9DF1800C6CA97 /* LaunchScreen.xib in Resources */,
+				BE25DC471AD2189F00D67D46 /* LaunchScreen.xib in Resources */,
 				BEC5ED401AC9DF1800C6CA97 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,7 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEC5ED3B1AC9DF1800C6CA97 /* ViewController.m in Sources */,
+				BEC5ED3B1AC9DF1800C6CA97 /* LoginViewController.m in Sources */,
+				BE25DC4A1AD219D900D67D46 /* WelcomeViewController.m in Sources */,
 				BEC5ED381AC9DF1800C6CA97 /* AppDelegate.m in Sources */,
 				BEC5ED351AC9DF1800C6CA97 /* main.m in Sources */,
 			);
@@ -304,20 +310,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		BE25DC451AD2189F00D67D46 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BE25DC461AD2189F00D67D46 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		BEC5ED3C1AC9DF1800C6CA97 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BEC5ED3D1AC9DF1800C6CA97 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BEC5ED411AC9DF1800C6CA97 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BEC5ED421AC9DF1800C6CA97 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
