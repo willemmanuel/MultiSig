@@ -16,7 +16,7 @@
 @property (weak, nonatomic) Coinbase* client;
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
 
--(void) didFinishAuthentication:(Coinbase*)client;
+-(void) didFinishAuthentication;
 
 @end
 

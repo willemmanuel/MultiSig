@@ -10,6 +10,7 @@
 #import <coinbase-official/Coinbase.h>
 #import <coinbase-official/CoinbaseOAuth.h>
 #import "LoginViewController.h"
+#import "CoinbaseSingleton.h"
 
 @interface AppDelegate ()
 
@@ -63,8 +64,15 @@
                                                     // Tokens successfully obtained!
                                                     // Do something with them (store them, etc.)
                                                     Coinbase *apiClient = [Coinbase coinbaseWithOAuthAccessToken:[result objectForKey:@"access_token"]];
+                                                    
+                                                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+                                                    [defaults setValue:[result objectForKey:@"access_token"] forKey:@"access_token"];
+                                                    [defaults synchronize];
+                                                    
+                                                    [CoinbaseSingleton shared].client = apiClient;
+                                                    
                                                     LoginViewController *controller = (LoginViewController *)[(UINavigationController *)self.window.rootViewController visibleViewController];
-                                                    [controller didFinishAuthentication:apiClient];
+                                                    [controller didFinishAuthentication];
                                                     // Note that you should also store 'expire_in' and refresh the token using [CoinbaseOAuth getOAuthTokensForRefreshToken] when it expires
                                                     NSLog(@"Success");
                                                 }

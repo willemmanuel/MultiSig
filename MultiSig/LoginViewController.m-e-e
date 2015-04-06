@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import <coinbase-official/CoinbaseOAuth.h>
+#import "CoinbaseSingleton.h"
 
 @interface LoginViewController ()
 
@@ -26,15 +27,21 @@
 }
 -(void)didPressLogin {
     [_loginButton setTitle:@"Logging in..." forState:UIControlStateNormal];
-    [CoinbaseOAuth startOAuthAuthenticationWithClientId:@"api_id"
-                                                  scope:@"user balance"
-                                            redirectUri:@"edu.self.multisig.coinbase-oauth://coinbase-oauth"
-                                                   meta:nil];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"access_token"] == nil) {
+        [CoinbaseOAuth startOAuthAuthenticationWithClientId:@"api_id"
+                                                      scope:@"user balance"
+                                                redirectUri:@"edu.self.multisig.coinbase-oauth://coinbase-oauth"
+                                                       meta:nil];
+    } else {
+        Coinbase *apiClient = [Coinbase coinbaseWithOAuthAccessToken:[defaults objectForKey:@"access_token"]];
+        [CoinbaseSingleton shared].client = apiClient;
+        [self didFinishAuthentication];
+    }
 }
 
--(void) didFinishAuthentication:(Coinbase*)client {
-    self.client = client;
-    [self.client doGet:@"accounts" parameters:nil completion:^(id result, NSError *error) {
+-(void) didFinishAuthentication {
+    [[CoinbaseSingleton shared].client doGet:@"accounts" parameters:nil completion:^(id result, NSError *error) {
         if (error) {
             NSLog(@"Could not load: %@", error);
         } else {
