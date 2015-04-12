@@ -1,18 +1,18 @@
 //
-//  WelcomeViewController.m
+//  MainTabViewController.m
 //  MultiSig
 //
-//  Created by William Emmanuel on 4/5/15.
+//  Created by William Emmanuel on 4/12/15.
 //  Copyright (c) 2015 William Emmanuel. All rights reserved.
 //
 
-#import "WelcomeViewController.h"
+#import "MainTabViewController.h"
 
-@interface WelcomeViewController ()
+@interface MainTabViewController ()
 
 @end
 
-@implementation WelcomeViewController
+@implementation MainTabViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

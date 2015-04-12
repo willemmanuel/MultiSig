@@ -11,7 +11,7 @@
 
 @interface CoinbaseSingleton : NSObject
 
-@property (nonatomic,retain) Coinbase *client;
+@property (nonatomic,strong) Coinbase *client;
 
 +(CoinbaseSingleton*) shared;
 

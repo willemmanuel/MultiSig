@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0868A71ADB2F8E00ED11DC /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0868A61ADB2F8E00ED11DC /* MainTabViewController.m */; };
+		BE0868AA1ADB30AA00ED11DC /* NewWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0868A91ADB30AA00ED11DC /* NewWalletViewController.m */; };
+		BE0868AD1ADB30B200ED11DC /* NewTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0868AC1ADB30B200ED11DC /* NewTransactionViewController.m */; };
+		BE0868B01ADB30CA00ED11DC /* SignTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0868AF1ADB30CA00ED11DC /* SignTransactionViewController.m */; };
 		BE25DC471AD2189F00D67D46 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE25DC451AD2189F00D67D46 /* LaunchScreen.xib */; };
-		BE25DC4A1AD219D900D67D46 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE25DC491AD219D900D67D46 /* WelcomeViewController.m */; };
 		BE25DC4D1AD2E1EB00D67D46 /* CoinbaseSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE25DC4C1AD2E1EB00D67D46 /* CoinbaseSingleton.m */; };
 		BEC5ED351AC9DF1800C6CA97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED341AC9DF1800C6CA97 /* main.m */; };
 		BEC5ED381AC9DF1800C6CA97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */; };
@@ -31,9 +34,15 @@
 
 /* Begin PBXFileReference section */
 		19FE5B6438AA8196934A3225 /* Pods-MultiSig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSig.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSig/Pods-MultiSig.debug.xcconfig"; sourceTree = "<group>"; };
+		BE0868A51ADB2F8E00ED11DC /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
+		BE0868A61ADB2F8E00ED11DC /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
+		BE0868A81ADB30AA00ED11DC /* NewWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewWalletViewController.h; sourceTree = "<group>"; };
+		BE0868A91ADB30AA00ED11DC /* NewWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewWalletViewController.m; sourceTree = "<group>"; };
+		BE0868AB1ADB30B200ED11DC /* NewTransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTransactionViewController.h; sourceTree = "<group>"; };
+		BE0868AC1ADB30B200ED11DC /* NewTransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTransactionViewController.m; sourceTree = "<group>"; };
+		BE0868AE1ADB30CA00ED11DC /* SignTransactionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignTransactionViewController.h; sourceTree = "<group>"; };
+		BE0868AF1ADB30CA00ED11DC /* SignTransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignTransactionViewController.m; sourceTree = "<group>"; };
 		BE25DC461AD2189F00D67D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		BE25DC481AD219D900D67D46 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
-		BE25DC491AD219D900D67D46 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		BE25DC4B1AD2E1EB00D67D46 /* CoinbaseSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinbaseSingleton.h; sourceTree = "<group>"; };
 		BE25DC4C1AD2E1EB00D67D46 /* CoinbaseSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinbaseSingleton.m; sourceTree = "<group>"; };
 		BEC5ED2F1AC9DF1800C6CA97 /* MultiSig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSig.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,15 +112,21 @@
 		BEC5ED311AC9DF1800C6CA97 /* MultiSig */ = {
 			isa = PBXGroup;
 			children = (
+				BEC5ED3C1AC9DF1800C6CA97 /* Main.storyboard */,
 				BEC5ED361AC9DF1800C6CA97 /* AppDelegate.h */,
 				BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */,
 				BE25DC4B1AD2E1EB00D67D46 /* CoinbaseSingleton.h */,
 				BE25DC4C1AD2E1EB00D67D46 /* CoinbaseSingleton.m */,
 				BEC5ED391AC9DF1800C6CA97 /* LoginViewController.h */,
 				BEC5ED3A1AC9DF1800C6CA97 /* LoginViewController.m */,
-				BEC5ED3C1AC9DF1800C6CA97 /* Main.storyboard */,
-				BE25DC481AD219D900D67D46 /* WelcomeViewController.h */,
-				BE25DC491AD219D900D67D46 /* WelcomeViewController.m */,
+				BE0868A81ADB30AA00ED11DC /* NewWalletViewController.h */,
+				BE0868A91ADB30AA00ED11DC /* NewWalletViewController.m */,
+				BE0868AB1ADB30B200ED11DC /* NewTransactionViewController.h */,
+				BE0868AC1ADB30B200ED11DC /* NewTransactionViewController.m */,
+				BE0868AE1ADB30CA00ED11DC /* SignTransactionViewController.h */,
+				BE0868AF1ADB30CA00ED11DC /* SignTransactionViewController.m */,
+				BE0868A51ADB2F8E00ED11DC /* MainTabViewController.h */,
+				BE0868A61ADB2F8E00ED11DC /* MainTabViewController.m */,
 				BE25DC451AD2189F00D67D46 /* LaunchScreen.xib */,
 				BEC5ED3F1AC9DF1800C6CA97 /* Images.xcassets */,
 				BEC5ED321AC9DF1800C6CA97 /* Supporting Files */,
@@ -289,10 +304,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0868B01ADB30CA00ED11DC /* SignTransactionViewController.m in Sources */,
 				BEC5ED3B1AC9DF1800C6CA97 /* LoginViewController.m in Sources */,
-				BE25DC4A1AD219D900D67D46 /* WelcomeViewController.m in Sources */,
+				BE0868AD1ADB30B200ED11DC /* NewTransactionViewController.m in Sources */,
+				BE0868A71ADB2F8E00ED11DC /* MainTabViewController.m in Sources */,
 				BE25DC4D1AD2E1EB00D67D46 /* CoinbaseSingleton.m in Sources */,
 				BEC5ED381AC9DF1800C6CA97 /* AppDelegate.m in Sources */,
+				BE0868AA1ADB30AA00ED11DC /* NewWalletViewController.m in Sources */,
 				BEC5ED351AC9DF1800C6CA97 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
