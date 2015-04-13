@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewWalletViewController : UIViewController
+@interface NewWalletViewController : UIViewController <UITextFieldDelegate>
 
 @end

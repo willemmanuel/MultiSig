@@ -11,7 +11,7 @@
 #import "CoinbaseSingleton.h"
 #import "MainTabViewController.h"
 
-#import <CoreBitcoin/BTCKey.h>
+#import <CoreBitcoin/CoreBitcoin.h>
 
 @interface LoginViewController ()
 
@@ -48,12 +48,14 @@
 
 -(void) didFinishAuthentication {
     if ([_defaults objectForKey:@"public_key"] == nil) {
-        BTCKey *newKey = [[BTCKey alloc] init];
-        // not very secure right now. fix later with keychain implementation
-        [_defaults setValue:[newKey privateKey] forKey:@"private_key"];
-        [_defaults setValue:[newKey publicKey] forKey:@"public_key"];
+        
+        //Create extended public and private key
+        NSData* seed = BTCDataWithHexCString("000102030405060708090a0b0c0d0e0f");
+        BTCKeychain* masterChain = [[BTCKeychain alloc] initWithSeed:seed];
+        
+        [_defaults setValue:masterChain.extendedPrivateKey forKey:@"private_key"];
+        [_defaults setValue:masterChain.extendedPublicKey forKey:@"public_key"];
         [_defaults synchronize];
-        newKey = nil;
     }
     // output public key (make sure it's there)
     NSLog(@"%@", [_defaults objectForKey:@"public_key"]);
