@@ -32,7 +32,6 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)didPressLogin {
-    [_loginButton setTitle:@"Logging in..." forState:UIControlStateNormal];
     [_defaults synchronize];
     if ([_defaults objectForKey:@"access_token"] == nil) {
         [CoinbaseOAuth startOAuthAuthenticationWithClientId:@"api_id"
@@ -59,10 +58,7 @@
     }
     // output public key (make sure it's there)
     NSLog(@"%@", [_defaults objectForKey:@"public_key"]);
-    MainTabViewController *tbvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabViewController"];
-    [self.navigationController pushViewController:tbvc animated:YES];
-    
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
