@@ -30,9 +30,7 @@
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (![_coinbase authenticated]) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
-        [self presentViewController:vc animated:YES completion:nil];
+        [self returnToLoginView];
     }
 }
 
@@ -45,7 +43,14 @@
 {
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self returnToLoginView];
+}
+
+-(void)returnToLoginView
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 /*
