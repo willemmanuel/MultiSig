@@ -9,6 +9,7 @@
 #import "NewWalletViewController.h"
 #import "CoinbaseSingleton.h"
 #import <CoreBitcoin/CoreBitcoin.h>
+#import <SSKeychain/SSKeychain.h>
 
 @interface NewWalletViewController ()
 
@@ -45,8 +46,8 @@
 //        }
 //    }];
     
-
-    self.userPublicKeyField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"public_key"];
+    NSString *user_id = [[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"];
+    self.userPublicKeyField.text = [SSKeychain passwordForService:@"extended_public_key" account:user_id];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -10,7 +10,7 @@
 #import <coinbase-official/CoinbaseOAuth.h>
 #import "CoinbaseSingleton.h"
 #import "MainTabViewController.h"
-
+#import <SSKeychain/SSKeychain.h>
 #import <CoreBitcoin/CoreBitcoin.h>
 
 @interface LoginViewController ()
@@ -31,34 +31,51 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)didPressLogin {
+-(void)didPressLogin
+{
     [_defaults synchronize];
-    if ([_defaults objectForKey:@"access_token"] == nil) {
+    if (![_defaults objectForKey:@"user_id"])
+    {
         [CoinbaseOAuth startOAuthAuthenticationWithClientId:@"api_id"
                                                       scope:@"user balance"
                                                 redirectUri:@"edu.self.multisig.coinbase-oauth://coinbase-oauth"
                                                        meta:nil];
-    } else {
-        Coinbase *apiClient = [Coinbase coinbaseWithOAuthAccessToken:[_defaults objectForKey:@"access_token"]];
+    }
+    else
+    {
+        Coinbase *apiClient = [Coinbase coinbaseWithOAuthAccessToken:[SSKeychain passwordForService:@"access_token" account:[_defaults objectForKey:@"user_id"]]];
         [CoinbaseSingleton shared].client = apiClient;
         [self didFinishAuthentication];
     }
 }
 
 -(void) didFinishAuthentication {
-    if ([_defaults objectForKey:@"public_key"] == nil) {
-        
+    NSString *user_id = [_defaults objectForKey:@"user_id"];
+    if (![SSKeychain passwordForService:@"extended_public_key" account:user_id])
+    {
         //Create extended public and private key
-        NSData* seed = BTCDataWithHexCString("000102030405060708090a0b0c0d0e0f");
+        NSData* seed = BTCDataWithHexCString([[self randomStringWithLength:32] UTF8String]);
         BTCKeychain* masterChain = [[BTCKeychain alloc] initWithSeed:seed];
+        [SSKeychain setPassword:masterChain.extendedPublicKey forService:@"extended_public_key" account:user_id];
+        [SSKeychain setPassword:masterChain.extendedPrivateKey forService:@"extended_private_key" account:user_id];
         
-        [_defaults setValue:masterChain.extendedPrivateKey forKey:@"private_key"];
-        [_defaults setValue:masterChain.extendedPublicKey forKey:@"public_key"];
-        [_defaults synchronize];
     }
     // output public key (make sure it's there)
-    NSLog(@"%@", [_defaults objectForKey:@"public_key"]);
+    NSLog(@"%@", [SSKeychain passwordForService:@"extended_public_key" account:user_id]);
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+-(NSString *) randomStringWithLength: (int) len {
+    NSString *letters = @"0123456789abcdef";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
+    
+    for (int i=0; i<len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform([letters length])]];
+    }
+    
+    return randomString;
 }
 
 @end

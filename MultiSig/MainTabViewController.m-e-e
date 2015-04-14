@@ -23,8 +23,8 @@
     // Do any additional setup after loading the view.
     _coinbase = [CoinbaseSingleton shared];
     
-    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
-    self.navigationItem.rightBarButtonItem = logoutButton;
+    //UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
+    //self.navigationItem.rightBarButtonItem = logoutButton;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -39,12 +39,12 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)logout
+/*-(void)logout
 {
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     [self returnToLoginView];
-}
+}*/
 
 -(void)returnToLoginView
 {

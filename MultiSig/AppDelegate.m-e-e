@@ -11,6 +11,7 @@
 #import <coinbase-official/CoinbaseOAuth.h>
 #import "LoginViewController.h"
 #import "CoinbaseSingleton.h"
+#import <SSKeychain/SSKeychain.h>
 
 @interface AppDelegate ()
 
@@ -63,19 +64,29 @@
                                                 } else {
                                                     // Tokens successfully obtained!
                                                     // Do something with them (store them, etc.)
-                                                    Coinbase *apiClient = [Coinbase coinbaseWithOAuthAccessToken:[result objectForKey:@"access_token"]];
+                                                    NSString *access_token = result[@"access_token"];
+                                                    Coinbase *apiClient = [Coinbase coinbaseWithOAuthAccessToken:access_token];
+                                                    [apiClient doGet:@"users/self" parameters:nil completion:^(id response, NSError *error) {
+                                                        if (error)
+                                                        {
+                                                            NSLog(@"%@",error.localizedDescription);
+                                                        }
+                                                        else {
+                                                        NSString *user_id = response[@"user"][@"id"];
+                                                        [[NSUserDefaults standardUserDefaults] setObject:user_id forKey:@"user_id"];
+                                                        [SSKeychain setPassword:access_token forService:@"access_token" account:user_id];
+                                                        [CoinbaseSingleton shared].client = apiClient;
+                                                        
+                                                        LoginViewController *controller = (LoginViewController *)[(UINavigationController *)self.window.rootViewController presentedViewController];
+                                                        [controller didFinishAuthentication];
+                                                        // Note that you should also store 'expire_in' and refresh the token using [CoinbaseOAuth getOAuthTokensForRefreshToken] when it expires
+                                                        NSLog(@"Success");
+                                                        }
+
+                                                    }];
                                                     
-                                                    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-                                                    [defaults setValue:[result objectForKey:@"access_token"] forKey:@"access_token"];
-                                                    [defaults synchronize];
                                                     
-                                                    [CoinbaseSingleton shared].client = apiClient;
-                                                  
-                                                    LoginViewController *controller = (LoginViewController *)[(UINavigationController *)self.window.rootViewController presentedViewController];
-                                                    [controller didFinishAuthentication];
-                                                    // Note that you should also store 'expire_in' and refresh the token using [CoinbaseOAuth getOAuthTokensForRefreshToken] when it expires
-                                                    NSLog(@"Success");
-                                                }
+                                                                                                    }
                                             }];
         return YES;
     }
