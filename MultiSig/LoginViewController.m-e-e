@@ -27,6 +27,7 @@
     [super viewDidLoad];
     [_loginButton addTarget:self action:@selector(didPressLogin) forControlEvents:UIControlEventTouchUpInside];
     _defaults = [NSUserDefaults standardUserDefaults];
+    self.navigationController.navigationBarHidden = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated
