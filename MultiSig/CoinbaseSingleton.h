@@ -14,6 +14,6 @@
 @property (nonatomic,strong) Coinbase *client;
 
 +(CoinbaseSingleton*) shared;
-
+-(BOOL)authenticated;
 
 @end

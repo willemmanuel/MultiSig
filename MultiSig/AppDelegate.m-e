@@ -70,8 +70,8 @@
                                                     [defaults synchronize];
                                                     
                                                     [CoinbaseSingleton shared].client = apiClient;
-                                                    
-                                                    LoginViewController *controller = (LoginViewController *)[(UINavigationController *)self.window.rootViewController visibleViewController];
+                                                  
+                                                    LoginViewController *controller = (LoginViewController *)[(UINavigationController *)self.window.rootViewController presentedViewController];
                                                     [controller didFinishAuthentication];
                                                     // Note that you should also store 'expire_in' and refresh the token using [CoinbaseOAuth getOAuthTokensForRefreshToken] when it expires
                                                     NSLog(@"Success");

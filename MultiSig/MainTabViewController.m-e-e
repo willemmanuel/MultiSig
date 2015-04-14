@@ -7,12 +7,16 @@
 //
 
 #import "MainTabViewController.h"
+#import "CoinbaseSingleton.h"
+#import "LoginViewController.h"
 
 @interface MainTabViewController ()
 
 @end
 
-@implementation MainTabViewController
+@implementation MainTabViewController {
+    CoinbaseSingleton *_coinbase;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
