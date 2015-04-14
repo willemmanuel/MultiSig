@@ -14,43 +14,27 @@
 
 @end
 
-@implementation MainTabViewController {
-    CoinbaseSingleton *_coinbase;
-}
+@implementation MainTabViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _coinbase = [CoinbaseSingleton shared];
-    
-    //UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
-    //self.navigationItem.rightBarButtonItem = logoutButton;
+    self.navigationItem.hidesBackButton = YES;
+    UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
+    self.navigationItem.rightBarButtonItem = logoutButton;
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (![_coinbase authenticated]) {
-        [self returnToLoginView];
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*-(void)logout
+-(void)logout
 {
     NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
-    [self returnToLoginView];
-}*/
-
--(void)returnToLoginView
-{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
-    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 /*

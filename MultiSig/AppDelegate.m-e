@@ -22,6 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
     return YES;
 }
 
@@ -77,7 +78,7 @@
                                                         [SSKeychain setPassword:access_token forService:@"access_token" account:user_id];
                                                         [CoinbaseSingleton shared].client = apiClient;
                                                         
-                                                        LoginViewController *controller = (LoginViewController *)[(UINavigationController *)self.window.rootViewController presentedViewController];
+                                                        LoginViewController *controller = (LoginViewController *)((UINavigationController *)self.window.rootViewController).viewControllers[0];
                                                         [controller didFinishAuthentication];
                                                         // Note that you should also store 'expire_in' and refresh the token using [CoinbaseOAuth getOAuthTokensForRefreshToken] when it expires
                                                         NSLog(@"Success");

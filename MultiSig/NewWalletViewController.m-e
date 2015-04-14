@@ -14,6 +14,7 @@
 @interface NewWalletViewController ()
 
 @property (nonatomic, weak) IBOutlet UIButton* createNewWalletButton;
+@property (nonatomic, weak) IBOutlet UIButton* logoutButton;
 @property (nonatomic, weak) IBOutlet UITextField* walletNameField;
 @property (nonatomic, weak) IBOutlet UITextField* userPublicKeyField;
 @property (nonatomic, weak) IBOutlet UITextField* publicKeyTwoField;
@@ -27,24 +28,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-    // example coinbase api call
-    
-//    [[CoinbaseSingleton shared].client doGet:@"accounts" parameters:nil completion:^(id result, NSError *error) {
-//        if (error) {
-//            NSLog(@"Could not load: %@", error);
-//        } else {
-//            NSArray *accounts = result[@"accounts"];
-//            NSString *text = @"";
-//            for (NSDictionary *account in accounts) {
-//                NSString *name = account[@"name"];
-//                NSDictionary *balance = account[@"balance"];
-//                text = [text stringByAppendingString:[NSString stringWithFormat:@"%@: %@ %@\n", name, balance[@"amount"], balance[@"currency"]]];
-//            }
-//            self.balanceLabel.text = text;
-//        }
-//    }];
     
     NSString *user_id = [[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"];
     self.userPublicKeyField.text = [SSKeychain passwordForService:@"extended_public_key" account:user_id];

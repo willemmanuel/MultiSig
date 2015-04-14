@@ -15,6 +15,8 @@
 
 @interface LoginViewController ()
 
+@property (nonatomic, strong) CoinbaseSingleton *coinbase;
+
 @end
 
 @implementation LoginViewController {
@@ -27,6 +29,15 @@
     _defaults = [NSUserDefaults standardUserDefaults];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    if ([self.coinbase authenticated])
+    {
+        MainTabViewController* mainTabViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MainTabViewController"];
+        [self.navigationController pushViewController:mainTabViewController animated:NO];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -34,7 +45,7 @@
 -(void)didPressLogin
 {
     [_defaults synchronize];
-    if (![_defaults objectForKey:@"user_id"])
+    if (![self.coinbase authenticated])
     {
         [CoinbaseOAuth startOAuthAuthenticationWithClientId:@"api_id"
                                                       scope:@"user balance"
@@ -62,7 +73,8 @@
     }
     // output public key (make sure it's there)
     NSLog(@"%@", [SSKeychain passwordForService:@"extended_public_key" account:user_id]);
-    [self dismissViewControllerAnimated:YES completion:nil];
+    MainTabViewController* mainTabViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MainTabViewController"];
+    [self.navigationController pushViewController:mainTabViewController animated:NO];
 }
 
 
