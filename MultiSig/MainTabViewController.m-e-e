@@ -21,8 +21,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _coinbase = [CoinbaseSingleton shared];
+    
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
     self.navigationItem.rightBarButtonItem = logoutButton;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (![_coinbase authenticated]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+        UIViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
