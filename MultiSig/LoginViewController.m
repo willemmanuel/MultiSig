@@ -27,15 +27,17 @@
     [super viewDidLoad];
     [_loginButton addTarget:self action:@selector(didPressLogin) forControlEvents:UIControlEventTouchUpInside];
     _defaults = [NSUserDefaults standardUserDefaults];
-    self.navigationController.navigationBarHidden = YES;
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    if ([self.coinbase authenticated])
+    self.navigationController.navigationBarHidden = YES;
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"])
     {
-        MainTabViewController* mainTabViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MainTabViewController"];
-        [self.navigationController pushViewController:mainTabViewController animated:NO];
+        Coinbase *apiClient = [Coinbase coinbaseWithOAuthAccessToken:[SSKeychain passwordForService:@"access_token" account:[_defaults objectForKey:@"user_id"]]];
+        [CoinbaseSingleton shared].client = apiClient;
+        [self didFinishAuthentication];
     }
 }
 
@@ -45,20 +47,10 @@
 }
 -(void)didPressLogin
 {
-    [_defaults synchronize];
-    if (![self.coinbase authenticated])
-    {
         [CoinbaseOAuth startOAuthAuthenticationWithClientId:@"api_id"
                                                       scope:@"user balance"
                                                 redirectUri:@"edu.self.multisig.coinbase-oauth://coinbase-oauth"
                                                        meta:nil];
-    }
-    else
-    {
-        Coinbase *apiClient = [Coinbase coinbaseWithOAuthAccessToken:[SSKeychain passwordForService:@"access_token" account:[_defaults objectForKey:@"user_id"]]];
-        [CoinbaseSingleton shared].client = apiClient;
-        [self didFinishAuthentication];
-    }
 }
 
 -(void) didFinishAuthentication {

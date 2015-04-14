@@ -51,8 +51,25 @@
     NSDictionary *account = [NSDictionary dictionaryWithObjectsAndKeys:self.walletNameField.text, @"name", @"multisig", @"type", self.requiredSignaturesField.text,@"m",xPublicKeys,@"xpubkeys", nil];
     NSDictionary *params = [NSDictionary dictionaryWithObject:account forKey:@"account"];
     [[CoinbaseSingleton shared].client doPost:@"accounts" parameters:params completion:^(id response, NSError *error) {
-            NSLog(@"%@",response);
-            NSLog(@"%@",error.localizedDescription);
+        UIAlertController *alert;
+        if (error)
+        {
+            alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+            
+        }
+        else
+        {
+            NSString *account_id = response[@"account"][@"id"];
+            alert = [UIAlertController alertControllerWithTitle:@"Success" message:@"New wallet successfully created!" preferredStyle:UIAlertControllerStyleAlert];
+            [[NSUserDefaults standardUserDefaults] setObject:account_id forKey:@"wallet"];
+        }
+        UIAlertAction *cancelAction = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"Ok", @"Ok action")
+                                       style:UIAlertActionStyleCancel
+                                       handler:nil];
+        [alert addAction:cancelAction];
+        [self presentViewController:alert animated:YES completion:nil];
+        
     }];
 }
 
