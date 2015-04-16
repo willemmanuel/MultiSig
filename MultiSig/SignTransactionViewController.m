@@ -28,17 +28,18 @@
 
 -(void)signButtonPressed {
 //    NSString *txid = _transactionId.text;
-    NSString *txid = @"552d83384692ab269c00013c";
+    NSString *txid = @"552f2ad8f7c24ec7800000d6";
     if(txid == nil) {
         [self badTransactionId];
         return;
     }
     NSString *url = [NSString stringWithFormat:@"transactions/%@/sighashes", txid];
     [[CoinbaseSingleton shared].client doGet:url parameters:nil completion:^(id result, NSError *error) {
-        NSLog(@"%@", result);
         //response[transaction][inputs] first [sighash]
+        // get through the mess of a response from coinbase
         NSDictionary *transaction = result[@"transaction"];
         NSDictionary *input = [transaction[@"inputs"] firstObject];
+        input = input[@"input"];
         [self didFinishFetchingTx:txid sighash:input[@"sighash"]];
     }];
 }
@@ -50,7 +51,7 @@
     NSString *putUrl = [NSString stringWithFormat:@"transactions/%@/signatures", tx];
     
     NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[keychain1 keyAtIndex:0]], [self signHash:sighash withKey:[keychain2 keyAtIndex:0]],nil];
-    
+    NSLog(@"sigs: %@", sigArray);
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     params[@"signatures"] = [[NSMutableArray alloc] init];
     [params[@"signatures"] addObject:[NSMutableDictionary new]];
