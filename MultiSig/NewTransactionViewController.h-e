@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewTransactionViewController : UIViewController
+@interface NewTransactionViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *accountID;
+@property (weak, nonatomic) IBOutlet UITextField *to;
+@property (weak, nonatomic) IBOutlet UITextField *amount;
 
 @end

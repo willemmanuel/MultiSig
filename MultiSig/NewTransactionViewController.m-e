@@ -9,17 +9,33 @@
 #import "NewTransactionViewController.h"
 #import "CoinbaseSingleton.h"
 
-@interface NewTransactionViewController () {
-    NSMutableArray *_multisigAccounts;
-}
+@interface NewTransactionViewController ()
 
 @end
 
-@implementation NewTransactionViewController
+@implementation NewTransactionViewController {
+    UIPickerView *_accountPicker;
+    NSMutableArray *_multisigAccounts;
+    NSDictionary *_currentlySelectedAccount;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapToDismissKeyboard)];
+    [self.view addGestureRecognizer:dismissKeyboard];
+    
     _multisigAccounts = [[NSMutableArray alloc] init];
+    _accountPicker  = [[UIPickerView alloc] init];
+    _accountPicker.delegate = self;
+    _accountPicker.dataSource = self;
+    _accountPicker.showsSelectionIndicator = YES;
+    _accountID.inputView = _accountPicker;
+    
+    _accountID.returnKeyType = UIReturnKeyDone;
+    _amount.returnKeyType = UIReturnKeyDone;
+    _to.returnKeyType = UIReturnKeyDone;
+    
     [[CoinbaseSingleton shared].client doGet:@"accounts" parameters:nil completion:^(id result, NSError *error) {
         if (error) {
             NSLog(@"Could not load: %@", error);
@@ -34,14 +50,47 @@
     }];
     // 552d7d15d77bbf5f790000e7
     
-    [[CoinbaseSingleton shared].client doDelete:@"transactions/552d83384692ab269c00013c" parameters:nil completion:^(id response, NSError *error) {
-        NSLog(@"%@ \n %@", response, error);
-    }];
+    // NEW TX CODE BELOW
+//    NSDictionary *params = @{@"transaction":@{@"to":@"15KdoHLtou7FP2foEHrtps5TsVZEEB3n4V", @"amount":@"0.0001"}, @"account_id":@"552d7d15d77bbf5f790000e7"};
+//    
+//    NSLog(@"%@", params); 
+//    [[CoinbaseSingleton shared].client doPost:@"transactions/send_money" parameters:params completion:^(id response, NSError *error) {
+//        NSLog(@"%@, %@", response, error);
+//        NSDictionary *transaction = response[@"transaction"];
+//        NSString *txid = transaction[@"id"];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TX Posted" message:txid delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)didTapToDismissKeyboard {
+    [self.view endEditing:YES];
+    [self resignFirstResponder];
+}
+
+# pragma mark - UIPickerView methods
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return [_multisigAccounts count];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return  1;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSDictionary *account = [_multisigAccounts objectAtIndex:row];
+    return account[@"name"];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    _currentlySelectedAccount = [_multisigAccounts objectAtIndex:row];
+    _accountID.text = _currentlySelectedAccount[@"name"];
 }
 
 /*

@@ -27,8 +27,7 @@
 }
 
 -(void)signButtonPressed {
-//    NSString *txid = _transactionId.text;
-    NSString *txid = @"552f42d721c278856b00007f";
+    NSString *txid = _transactionId.text;
     if(txid == nil) {
         [self badTransactionId];
         return;
@@ -45,11 +44,10 @@
 }
 
 -(void) didFinishFetchingTx:(NSString*)tx sighash:(NSString*)sighash {
-//    BTCKeychain *keychain1 = [[BTCKeychain alloc] initWithExtendedKey:@"xprv9s21ZrQH143K2n2gevYdgEb1bTzWiqjc6g2ovJSVEaK794ZTBDkGKs839AT7VUnAw6d6UfokDo4g98MrhoKdhgefTB8GzaQUZ53xw6Shmd4"];
-//    BTCKeychain *keychain2 = [[BTCKeychain alloc] initWithExtendedKey:@"xprv9s21ZrQH143K3MrTYjdPt8zbgE6YVVfjrv4hJE3wLv3oGHG4Liv4kP1PE97gGbCPeHPoBB11HySK9N1VPuChb3LJuiP7NptoUyB9XCVfgFK"];
+    BTCKeychain *keychain2 = [[BTCKeychain alloc] initWithExtendedKey:@"xprv9s21ZrQH143K3MrTYjdPt8zbgE6YVVfjrv4hJE3wLv3oGHG4Liv4kP1PE97gGbCPeHPoBB11HySK9N1VPuChb3LJuiP7NptoUyB9XCVfgFK"];
     NSString *putUrl = [NSString stringWithFormat:@"transactions/%@/signatures", tx];
-//    NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[keychain1 keyAtIndex:0]], [self signHash:sighash withKey:[keychain2 keyAtIndex:0]],nil];
-    NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[[CoinbaseSingleton shared].keychain keyAtIndex:0]],nil];
+    NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[keychain2 keyAtIndex:0]],nil];
+    //NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[[CoinbaseSingleton shared].keychain keyAtIndex:0]],nil];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     params[@"signatures"] = [[NSMutableArray alloc] init];
     [params[@"signatures"] addObject:[NSMutableDictionary new]];

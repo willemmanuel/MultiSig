@@ -47,10 +47,11 @@
 }
 -(void)didPressLogin
 {
+    NSDictionary *meta = @{@"send_limit_amount":@"50", @"send_limit_currency":@"USD"};
         [CoinbaseOAuth startOAuthAuthenticationWithClientId:@"api_id"
-                                                      scope:@"user balance"
+                                                      scope:@"user send transactions addresses"
                                                 redirectUri:@"edu.self.multisig.coinbase-oauth://coinbase-oauth"
-                                                       meta:nil];
+                                                       meta:meta];
 }
 
 -(void) didFinishAuthentication {
