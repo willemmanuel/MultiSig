@@ -58,14 +58,25 @@
     if (![SSKeychain passwordForService:@"extended_public_key" account:user_id])
     {
         //Create extended public and private key
+        //Store the BTCKeychain object so we can access the root key later
+        // (needed for signing of transactions, generating receiving address, etc)
         NSData* seed = BTCDataWithHexCString([[self randomStringWithLength:32] UTF8String]);
         BTCKeychain* masterChain = [[BTCKeychain alloc] initWithSeed:seed];
+        [CoinbaseSingleton shared].keychain = masterChain;
         [SSKeychain setPassword:masterChain.extendedPublicKey forService:@"extended_public_key" account:user_id];
         [SSKeychain setPassword:masterChain.extendedPrivateKey forService:@"extended_private_key" account:user_id];
         
     }
+    else
+    {
+        // using the stored private key, recreate the btckeychain
+        // store this object in our singleton so we can sign stuff later
+        BTCKeychain* masterChain =
+        [[BTCKeychain alloc] initWithExtendedKey:[SSKeychain passwordForService:@"extended_private_key" account:user_id]];
+        [CoinbaseSingleton shared].keychain = masterChain;
+    }
+    
     // output public key (make sure it's there)
-    NSLog(@"%@", [SSKeychain passwordForService:@"extended_public_key" account:user_id]);
     MainTabViewController* mainTabViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"MainTabViewController"];
     [self.navigationController pushViewController:mainTabViewController animated:NO];
 }

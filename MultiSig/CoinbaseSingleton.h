@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <coinbase-official/Coinbase.h>
+#import <CoreBitcoin/CoreBitcoin.h>
 
 @interface CoinbaseSingleton : NSObject
 
 @property (nonatomic,strong) Coinbase *client;
+@property (nonatomic,strong) BTCKeychain *keychain;
 
 +(CoinbaseSingleton*) shared;
 -(BOOL)authenticated;

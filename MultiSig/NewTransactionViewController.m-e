@@ -7,8 +7,11 @@
 //
 
 #import "NewTransactionViewController.h"
+#import "CoinbaseSingleton.h"
 
-@interface NewTransactionViewController ()
+@interface NewTransactionViewController () {
+    NSMutableArray *_multisigAccounts;
+}
 
 @end
 
@@ -16,7 +19,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _multisigAccounts = [[NSMutableArray alloc] init];
+    [[CoinbaseSingleton shared].client doGet:@"accounts" parameters:nil completion:^(id result, NSError *error) {
+        if (error) {
+            NSLog(@"Could not load: %@", error);
+        } else {
+            NSArray *accounts = result[@"accounts"];
+            for (NSDictionary *account in accounts) {
+                if ([account[@"type"] isEqualToString:@"multisig"])
+                    [_multisigAccounts addObject:account];
+            }
+            NSLog(@"%@", _multisigAccounts); 
+        }
+    }];
+    // 552d7d15d77bbf5f790000e7
+    
+    [[CoinbaseSingleton shared].client doDelete:@"transactions/552d83384692ab269c00013c" parameters:nil completion:^(id response, NSError *error) {
+        NSLog(@"%@ \n %@", response, error);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

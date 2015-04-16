@@ -54,6 +54,7 @@
         UIAlertController *alert;
         if (error)
         {
+            NSLog(@"%@",error);
             alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
             
         }

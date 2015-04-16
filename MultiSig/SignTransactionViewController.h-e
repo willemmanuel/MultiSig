@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoinbaseSingleton.h"
 
 @interface SignTransactionViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITextField *transactionId;
+@property (weak, nonatomic) IBOutlet UIButton *signButton;
+
 
 @end
