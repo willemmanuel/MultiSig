@@ -14,6 +14,9 @@
 		BE25DC471AD2189F00D67D46 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE25DC451AD2189F00D67D46 /* LaunchScreen.xib */; };
 		BE25DC4D1AD2E1EB00D67D46 /* CoinbaseSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE25DC4C1AD2E1EB00D67D46 /* CoinbaseSingleton.m */; };
 		BE31A6581AE16EB100B0BCDC /* QRDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE31A6571AE16EB100B0BCDC /* QRDisplayViewController.m */; };
+		BE31A65C1AE190DB00B0BCDC /* sign.png in Resources */ = {isa = PBXBuildFile; fileRef = BE31A6591AE190DB00B0BCDC /* sign.png */; };
+		BE31A65D1AE190DB00B0BCDC /* transaction.png in Resources */ = {isa = PBXBuildFile; fileRef = BE31A65A1AE190DB00B0BCDC /* transaction.png */; };
+		BE31A65E1AE190DB00B0BCDC /* wallet.png in Resources */ = {isa = PBXBuildFile; fileRef = BE31A65B1AE190DB00B0BCDC /* wallet.png */; };
 		BEC5ED351AC9DF1800C6CA97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED341AC9DF1800C6CA97 /* main.m */; };
 		BEC5ED381AC9DF1800C6CA97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */; };
 		BEC5ED3B1AC9DF1800C6CA97 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED3A1AC9DF1800C6CA97 /* LoginViewController.m */; };
@@ -48,6 +51,9 @@
 		BE25DC4C1AD2E1EB00D67D46 /* CoinbaseSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinbaseSingleton.m; sourceTree = "<group>"; };
 		BE31A6561AE16EB100B0BCDC /* QRDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRDisplayViewController.h; sourceTree = "<group>"; };
 		BE31A6571AE16EB100B0BCDC /* QRDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRDisplayViewController.m; sourceTree = "<group>"; };
+		BE31A6591AE190DB00B0BCDC /* sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sign.png; sourceTree = "<group>"; };
+		BE31A65A1AE190DB00B0BCDC /* transaction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transaction.png; sourceTree = "<group>"; };
+		BE31A65B1AE190DB00B0BCDC /* wallet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallet.png; sourceTree = "<group>"; };
 		BEC5ED2F1AC9DF1800C6CA97 /* MultiSig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC5ED331AC9DF1800C6CA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC5ED341AC9DF1800C6CA97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -142,6 +148,9 @@
 		BEC5ED321AC9DF1800C6CA97 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE31A6591AE190DB00B0BCDC /* sign.png */,
+				BE31A65A1AE190DB00B0BCDC /* transaction.png */,
+				BE31A65B1AE190DB00B0BCDC /* wallet.png */,
 				BEC5ED331AC9DF1800C6CA97 /* Info.plist */,
 				BEC5ED341AC9DF1800C6CA97 /* main.m */,
 			);
@@ -255,8 +264,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE31A65C1AE190DB00B0BCDC /* sign.png in Resources */,
+				BE31A65D1AE190DB00B0BCDC /* transaction.png in Resources */,
 				BEC5ED3E1AC9DF1800C6CA97 /* Main.storyboard in Resources */,
 				BE25DC471AD2189F00D67D46 /* LaunchScreen.xib in Resources */,
+				BE31A65E1AE190DB00B0BCDC /* wallet.png in Resources */,
 				BEC5ED401AC9DF1800C6CA97 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
