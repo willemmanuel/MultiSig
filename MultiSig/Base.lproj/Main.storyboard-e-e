@@ -322,7 +322,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Transaction" image="transaction.png" selectedImage="transaction.png" id="hkf-8P-22D"/>
+                    <tabBarItem key="tabBarItem" title="New Transaction" image="transaction.png" id="hkf-8P-22D"/>
                     <connections>
                         <outlet property="accountID" destination="ITI-fW-Jzp" id="Z82-ue-yLx"/>
                         <outlet property="amount" destination="65I-02-Fv6" id="H7L-JH-2pc"/>
@@ -549,7 +549,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sign Transaction" image="sign.png" selectedImage="sign.png" id="scc-2N-PL1"/>
+                    <tabBarItem key="tabBarItem" title="Sign Transaction" image="sign.png" id="scc-2N-PL1"/>
                     <connections>
                         <outlet property="qrButton" destination="gb5-Rm-rlp" id="7wR-Ed-lBK"/>
                         <outlet property="signButton" destination="Czd-JQ-4KU" id="rup-gi-W3e"/>
@@ -904,7 +904,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Create Wallet" image="wallet.png" selectedImage="wallet.png" id="AIe-DC-rwy"/>
+                    <tabBarItem key="tabBarItem" title="Create Wallet" image="wallet.png" id="AIe-DC-rwy"/>
                     <connections>
                         <outlet property="createNewWalletButton" destination="dW5-dM-okK" id="M9C-bT-17S"/>
                         <outlet property="publicKeyThreeField" destination="83I-GL-xSi" id="Bxr-pg-O8b"/>
