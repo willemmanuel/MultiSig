@@ -22,7 +22,8 @@
     self.navigationController.navigationBarHidden = NO;
     self.navigationItem.hidesBackButton = YES;
     UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStylePlain target:self action:@selector(logout)];
-    self.navigationItem.rightBarButtonItem = logoutButton;
+    self.navigationItem.leftBarButtonItem = logoutButton;
+    [self setTitle:@"MultiSig"];
 }
 
 

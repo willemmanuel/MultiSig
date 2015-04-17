@@ -17,13 +17,18 @@
     UIPickerView *_accountPicker;
     NSMutableArray *_multisigAccounts;
     NSDictionary *_currentlySelectedAccount;
+    __block NewTransactionViewController *_ref;
+    __block UIView *_qr;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _ref = self;
     UIGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapToDismissKeyboard)];
     [self.view addGestureRecognizer:dismissKeyboard];
+    
+    [_createTxButton addTarget:self action:@selector(didTapCreateButton) forControlEvents:UIControlEventTouchUpInside];
+    [_qrButton addTarget:self action:@selector(didTapQrButton) forControlEvents:UIControlEventTouchUpInside];
     
     _multisigAccounts = [[NSMutableArray alloc] init];
     _accountPicker  = [[UIPickerView alloc] init];
@@ -48,19 +53,42 @@
             NSLog(@"%@", _multisigAccounts); 
         }
     }];
-    // 552d7d15d77bbf5f790000e7
+}
+
+-(void)didTapQrButton {
+    _qr = [BTCQRCode scannerViewWithBlock:^(NSString *message) {
+        [_ref didReturnFromQr:message];
+    }];
+    [self.view addSubview:_qr];
+}
+
+-(void)didReturnFromQr:(NSString*)code {
+    code = [code stringByReplacingOccurrencesOfString:@"bitcoin:" withString:@""];
+    _to.text = code;
+    [_qr removeFromSuperview];
+}
+
+-(void)didTapCreateButton {
+    if (! [self validData] ) return;
     
-    // NEW TX CODE BELOW
-//    NSDictionary *params = @{@"transaction":@{@"to":@"15KdoHLtou7FP2foEHrtps5TsVZEEB3n4V", @"amount":@"0.0001"}, @"account_id":@"552d7d15d77bbf5f790000e7"};
-//    
-//    NSLog(@"%@", params); 
-//    [[CoinbaseSingleton shared].client doPost:@"transactions/send_money" parameters:params completion:^(id response, NSError *error) {
-//        NSLog(@"%@, %@", response, error);
-//        NSDictionary *transaction = response[@"transaction"];
-//        NSString *txid = transaction[@"id"];
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TX Posted" message:txid delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//        [alert show];
-//    }];
+    NSDictionary *params = @{@"transaction":@{@"to":_to.text, @"amount":_amount.text}, @"account_id":_currentlySelectedAccount[@"id"]};
+
+    [[CoinbaseSingleton shared].client doPost:@"transactions/send_money" parameters:params completion:^(id response, NSError *error) {
+        NSLog(@"%@, %@", response, error);
+        NSDictionary *transaction = response[@"transaction"];
+        NSString *txid = transaction[@"id"];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"TX Posted" message:txid delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }];
+}
+
+-(BOOL) validData {
+    if(_to.text == nil || _amount.text == nil || _accountID.text == nil) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Data" message:@"Please fill out all transaction information" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        return NO;
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {

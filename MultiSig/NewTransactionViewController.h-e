@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *accountID;
 @property (weak, nonatomic) IBOutlet UITextField *to;
 @property (weak, nonatomic) IBOutlet UITextField *amount;
+@property (weak, nonatomic) IBOutlet UIButton *createTxButton;
+@property (weak, nonatomic) IBOutlet UIButton *qrButton;
 
 @end

@@ -20,17 +20,26 @@
 @property (nonatomic, weak) IBOutlet UITextField* publicKeyTwoField;
 @property (nonatomic, weak) IBOutlet UITextField* publicKeyThreeField;
 @property (nonatomic, weak) IBOutlet UITextField* requiredSignaturesField;
+@property (weak, nonatomic) IBOutlet UIButton *qrButton2;
+@property (weak, nonatomic) IBOutlet UIButton *qrButton3;
 
 @end
 
-@implementation NewWalletViewController
+@implementation NewWalletViewController {
+    __block NewWalletViewController *_ref;
+    __block UIView *_qr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+    _ref = self;
+    UIGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapToDismissKeyboard)];
+    [self.view addGestureRecognizer:dismissKeyboard];
     NSString *user_id = [[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"];
     self.userPublicKeyField.text = [SSKeychain passwordForService:@"extended_public_key" account:user_id];
+    
+    [_qrButton2 addTarget:self action:@selector(didTapQrButton:) forControlEvents:UIControlEventTouchUpInside];
+    [_qrButton3 addTarget:self action:@selector(didTapQrButton:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +81,32 @@
         [self presentViewController:alert animated:YES completion:nil];
         
     }];
+}
+-(void)didTapToDismissKeyboard {
+    [self.view endEditing:YES];
+    [self resignFirstResponder];
+}
+
+-(void)didTapQrButton:(id)sender {
+    if (sender == _qrButton2) {
+        _qr = [BTCQRCode scannerViewWithBlock:^(NSString *message) {
+            [_ref didReturnFromQr:message andPubKey:2];
+        }];
+    } else if (sender == _qrButton3) {
+        _qr = [BTCQRCode scannerViewWithBlock:^(NSString *message) {
+            [_ref didReturnFromQr:message andPubKey:3];
+        }];
+    }
+    [self.view addSubview:_qr];
+}
+
+-(void)didReturnFromQr:(NSString*)code andPubKey:(int)pub {
+    [_qr removeFromSuperview];
+    if(pub == 2) {
+        _publicKeyTwoField.text = code;
+    } else if (pub == 3) {
+        _publicKeyThreeField.text = code; 
+    }
 }
 
 /*
