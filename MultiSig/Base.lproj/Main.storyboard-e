@@ -335,6 +335,91 @@
             </objects>
             <point key="canvasLocation" x="3223.5" y="1521"/>
         </scene>
+        <!--Display View Controller-->
+        <scene sceneID="b0O-iW-2JL">
+            <objects>
+                <viewController storyboardIdentifier="QRViewController" id="4Ld-ay-QTK" customClass="QRDisplayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sda-jt-AZ6"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Sb-gG-oaF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cHP-eO-NWh">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BMp-OL-QYu">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="89" y="133" width="223" height="191"/>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usw-Nl-hLd">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="EjG-Kt-b0X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="EjG-Kt-b0X"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="89" y="356" width="228" height="21"/>
+                                    <mask key="constraints">
+                                        <include reference="EjG-Kt-b0X"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.32156862749999998" green="0.56470588239999997" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="BMp-OL-QYu" firstAttribute="top" secondItem="sda-jt-AZ6" secondAttribute="bottom" constant="113" id="39c-d3-IRI"/>
+                            <constraint firstItem="BMp-OL-QYu" firstAttribute="leading" secondItem="cHP-eO-NWh" secondAttribute="leadingMargin" constant="73" id="A9A-lw-wco"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Usw-Nl-hLd" secondAttribute="trailing" constant="67" id="BKe-h6-ON8"/>
+                            <constraint firstItem="BMp-OL-QYu" firstAttribute="centerX" secondItem="cHP-eO-NWh" secondAttribute="centerX" id="LVe-kf-79X"/>
+                            <constraint firstItem="BMp-OL-QYu" firstAttribute="leading" secondItem="Usw-Nl-hLd" secondAttribute="leading" id="cmN-ZX-CB3"/>
+                            <constraint firstItem="Usw-Nl-hLd" firstAttribute="top" secondItem="BMp-OL-QYu" secondAttribute="bottom" constant="32" id="rRG-gK-wZh"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="BMp-OL-QYu"/>
+                                <exclude reference="Usw-Nl-hLd"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="39c-d3-IRI"/>
+                                <exclude reference="A9A-lw-wco"/>
+                                <exclude reference="LVe-kf-79X"/>
+                                <exclude reference="cmN-ZX-CB3"/>
+                                <exclude reference="BKe-h6-ON8"/>
+                                <exclude reference="rRG-gK-wZh"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="BMp-OL-QYu"/>
+                                <include reference="Usw-Nl-hLd"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="39c-d3-IRI"/>
+                                <include reference="A9A-lw-wco"/>
+                                <include reference="LVe-kf-79X"/>
+                                <include reference="cmN-ZX-CB3"/>
+                                <include reference="BKe-h6-ON8"/>
+                                <include reference="rRG-gK-wZh"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="Usw-Nl-hLd" id="x6v-LG-NAV"/>
+                        <outlet property="qrImageView" destination="BMp-OL-QYu" id="cQe-YN-iSR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhQ-Xh-wKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1440" y="1848"/>
+        </scene>
         <!--Sign Transaction-->
         <scene sceneID="dFG-wY-XsG">
             <objects>
@@ -433,11 +518,11 @@
                                 <exclude reference="gb5-Rm-rlp"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="in1-uJ-2ql"/>
+                                <exclude reference="wdV-v9-VVf"/>
                                 <exclude reference="4af-uq-Xk0"/>
                                 <exclude reference="MYN-U6-pcx"/>
                                 <exclude reference="qvv-aT-GZn"/>
-                                <exclude reference="in1-uJ-2ql"/>
-                                <exclude reference="wdV-v9-VVf"/>
                                 <exclude reference="jbj-aa-iFU"/>
                                 <exclude reference="kah-2O-Q7v"/>
                                 <exclude reference="7hU-bp-wCv"/>
@@ -452,11 +537,11 @@
                                 <include reference="gb5-Rm-rlp"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="in1-uJ-2ql"/>
+                                <include reference="wdV-v9-VVf"/>
                                 <include reference="4af-uq-Xk0"/>
                                 <include reference="MYN-U6-pcx"/>
                                 <include reference="qvv-aT-GZn"/>
-                                <include reference="in1-uJ-2ql"/>
-                                <include reference="wdV-v9-VVf"/>
                                 <include reference="jbj-aa-iFU"/>
                                 <include reference="kah-2O-Q7v"/>
                                 <include reference="7hU-bp-wCv"/>

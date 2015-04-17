@@ -13,6 +13,7 @@
 		BE0868B01ADB30CA00ED11DC /* SignTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE0868AF1ADB30CA00ED11DC /* SignTransactionViewController.m */; };
 		BE25DC471AD2189F00D67D46 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE25DC451AD2189F00D67D46 /* LaunchScreen.xib */; };
 		BE25DC4D1AD2E1EB00D67D46 /* CoinbaseSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE25DC4C1AD2E1EB00D67D46 /* CoinbaseSingleton.m */; };
+		BE31A6581AE16EB100B0BCDC /* QRDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE31A6571AE16EB100B0BCDC /* QRDisplayViewController.m */; };
 		BEC5ED351AC9DF1800C6CA97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED341AC9DF1800C6CA97 /* main.m */; };
 		BEC5ED381AC9DF1800C6CA97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */; };
 		BEC5ED3B1AC9DF1800C6CA97 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED3A1AC9DF1800C6CA97 /* LoginViewController.m */; };
@@ -45,6 +46,8 @@
 		BE25DC461AD2189F00D67D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BE25DC4B1AD2E1EB00D67D46 /* CoinbaseSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinbaseSingleton.h; sourceTree = "<group>"; };
 		BE25DC4C1AD2E1EB00D67D46 /* CoinbaseSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinbaseSingleton.m; sourceTree = "<group>"; };
+		BE31A6561AE16EB100B0BCDC /* QRDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRDisplayViewController.h; sourceTree = "<group>"; };
+		BE31A6571AE16EB100B0BCDC /* QRDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRDisplayViewController.m; sourceTree = "<group>"; };
 		BEC5ED2F1AC9DF1800C6CA97 /* MultiSig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC5ED331AC9DF1800C6CA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC5ED341AC9DF1800C6CA97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				BEC5ED3C1AC9DF1800C6CA97 /* Main.storyboard */,
+				BE31A6561AE16EB100B0BCDC /* QRDisplayViewController.h */,
+				BE31A6571AE16EB100B0BCDC /* QRDisplayViewController.m */,
 				BEC5ED361AC9DF1800C6CA97 /* AppDelegate.h */,
 				BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */,
 				BE25DC4B1AD2E1EB00D67D46 /* CoinbaseSingleton.h */,
@@ -304,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE0868B01ADB30CA00ED11DC /* SignTransactionViewController.m in Sources */,
+				BE31A6581AE16EB100B0BCDC /* QRDisplayViewController.m in Sources */,
 				BEC5ED3B1AC9DF1800C6CA97 /* LoginViewController.m in Sources */,
 				BE0868AD1ADB30B200ED11DC /* NewTransactionViewController.m in Sources */,
 				BE0868A71ADB2F8E00ED11DC /* MainTabViewController.m in Sources */,
