@@ -19,6 +19,7 @@
     NSDictionary *_currentlySelectedAccount;
     __block NewTransactionViewController *_ref;
     __block UIView *_qr;
+    __block UIButton *_cancel;
 }
 
 - (void)viewDidLoad {
@@ -59,9 +60,19 @@
     _qr = [BTCQRCode scannerViewWithBlock:^(NSString *message) {
         [_ref didReturnFromQr:message];
     }];
+    _cancel = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 50, 50)];
+    [_cancel addTarget:self action:@selector(didCancelQr) forControlEvents:UIControlEventTouchUpInside];
+    [_cancel setTitle:@"X" forState:UIControlStateNormal];
+    [_cancel setBackgroundColor:[UIColor whiteColor]];
+    [_cancel setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.view addSubview:_qr];
+    [_qr addSubview:_cancel];
 }
 
+-(void)didCancelQr {
+    [_cancel removeFromSuperview];
+    [_qr removeFromSuperview];
+}
 -(void)didReturnFromQr:(NSString*)code {
     code = [code stringByReplacingOccurrencesOfString:@"bitcoin:" withString:@""];
     _to.text = code;

@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *transactionId;
 @property (weak, nonatomic) IBOutlet UIButton *signButton;
+@property (weak, nonatomic) IBOutlet UIButton *qrButton;
 
 
 @end
