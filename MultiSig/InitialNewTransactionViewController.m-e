@@ -1,29 +1,28 @@
 //
-//  QRDisplayViewController.m
+//  InitialNewTransactionViewController.m
 //  MultiSig
 //
-//  Created by William Emmanuel on 4/17/15.
+//  Created by William Emmanuel on 4/19/15.
 //  Copyright (c) 2015 William Emmanuel. All rights reserved.
 //
 
+#import "InitialNewTransactionViewController.h"
 #import "QRDisplayViewController.h"
-#import "CoinbaseSingleton.h"
 
-@interface QRDisplayViewController ()
+@interface InitialNewTransactionViewController ()
 
 @end
 
-@implementation QRDisplayViewController
+@implementation InitialNewTransactionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if (_address == nil) {
-        _qrImageView.image = [BTCQRCode imageForString:[CoinbaseSingleton shared].keychain.extendedPublicKey size:CGSizeMake(200, 200) scale:1.0];
-        _addressLabel.text = [CoinbaseSingleton shared].keychain.extendedPublicKey;
-    } else {
-        _qrImageView.image = [BTCQRCode imageForString:_address size:CGSizeMake(200, 200) scale:1.0];
-        _addressLabel.text = _address;
-    }
+    // Do any additional setup after loading the view.
+    [_receiveButton addTarget:self action:@selector(receiveButtonWasPressed) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)receiveButtonWasPressed {
+    
 }
 
 - (void)didReceiveMemoryWarning {

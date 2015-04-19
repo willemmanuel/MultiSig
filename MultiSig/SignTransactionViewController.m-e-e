@@ -67,6 +67,8 @@
         NSDictionary *transaction = result[@"transaction"];
         NSDictionary *input = [transaction[@"inputs"] firstObject];
         input = input[@"input"];
+        
+        NSLog(@"%@", input);
         [self didFinishFetchingTx:txid sighash:input[@"sighash"]];
     }];
 }
@@ -74,7 +76,7 @@
 -(void) didFinishFetchingTx:(NSString*)tx sighash:(NSString*)sighash {
     BTCKeychain *keychain2 = [[BTCKeychain alloc] initWithExtendedKey:@"xprv9s21ZrQH143K3MrTYjdPt8zbgE6YVVfjrv4hJE3wLv3oGHG4Liv4kP1PE97gGbCPeHPoBB11HySK9N1VPuChb3LJuiP7NptoUyB9XCVfgFK"];
     NSString *putUrl = [NSString stringWithFormat:@"transactions/%@/signatures", tx];
-    NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[keychain2 keyAtIndex:0]],nil];
+    NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[keychain2 keyAtIndex:1]],nil];
     //NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[[CoinbaseSingleton shared].keychain keyAtIndex:0]],nil];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     params[@"signatures"] = [[NSMutableArray alloc] init];

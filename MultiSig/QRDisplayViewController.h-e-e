@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreBitcoin/CoreBitcoin.h>
 
 @interface QRDisplayViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *qrImageView;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+
+@property (nonatomic, strong) NSString *address; 
 
 @end

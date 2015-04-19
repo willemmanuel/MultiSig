@@ -83,25 +83,18 @@
 -(void)didTapCreateButton {
     //if (! [self validData] ) return;
     
-    NSString *txid = @"test";
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    QRDisplayViewController *qrvc = (QRDisplayViewController*)[storyboard instantiateViewControllerWithIdentifier:@"QRViewController"];
     
-    qrvc.qrImageView.image = [BTCQRCode imageForString:txid size:CGSizeMake(223, 191) scale:1.0];
-    qrvc.addressLabel.text = txid;
-    [self.navigationController pushViewController:qrvc animated:YES];
-    
-//    NSDictionary *params = @{@"transaction":@{@"to":_to.text, @"amount":_amount.text}, @"account_id":_currentlySelectedAccount[@"id"]};
-//
-//    [[CoinbaseSingleton shared].client doPost:@"transactions/send_money" parameters:params completion:^(id response, NSError *error) {
-//        NSLog(@"%@, %@", response, error);
-//        NSDictionary *transaction = response[@"transaction"];
-//        NSString *txid = transaction[@"id"];
-//        QRDisplayViewController *qrvc = [[QRDisplayViewController alloc] init];
-//        qrvc.qrImageView.image = [BTCQRCode imageForString:txid size:CGSizeMake(223, 191) scale:1.0];
-//        qrvc.addressLabel.text = txid;
-//        [self.navigationController pushViewController:qrvc animated:YES];
-//    }];
+    NSDictionary *params = @{@"transaction":@{@"to":_to.text, @"amount":_amount.text}, @"account_id":_currentlySelectedAccount[@"id"]};
+
+    [[CoinbaseSingleton shared].client doPost:@"transactions/send_money" parameters:params completion:^(id response, NSError *error) {
+        NSLog(@"%@, %@", response, error);
+        NSDictionary *transaction = response[@"transaction"];
+        NSString *txid = transaction[@"id"];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        QRDisplayViewController *qrvc = (QRDisplayViewController*)[storyboard instantiateViewControllerWithIdentifier:@"QRViewController"];
+        qrvc.address = txid;
+        [self.navigationController pushViewController:qrvc animated:YES];
+    }];
 }
 
 -(BOOL) validData {
