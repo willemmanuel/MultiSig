@@ -57,6 +57,14 @@
     }];
 }
 
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Targets
+
 -(void)didTapQrButton {
     _qr = [BTCQRCode scannerViewWithBlock:^(NSString *message) {
         [_ref didReturnFromQr:message];
@@ -81,7 +89,7 @@
 }
 
 -(void)didTapCreateButton {
-    //if (! [self validData] ) return;
+    if (! [self validData] ) return;
     
     
     NSDictionary *params = @{@"transaction":@{@"to":_to.text, @"amount":_amount.text}, @"account_id":_currentlySelectedAccount[@"id"]};
@@ -97,23 +105,20 @@
     }];
 }
 
+-(void)didTapToDismissKeyboard {
+    [self.view endEditing:YES];
+    [self resignFirstResponder];
+}
+
+#pragma mark - Helpers
+
 -(BOOL) validData {
-    if(_to.text == nil || _amount.text == nil || _accountID.text == nil) {
+    if(_to.text == nil || _amount.text == nil || _accountID.text == nil || _currentlySelectedAccount[@"id"] == nil ) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Data" message:@"Please fill out all transaction information" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         return NO;
     }
     return YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)didTapToDismissKeyboard {
-    [self.view endEditing:YES];
-    [self resignFirstResponder];
 }
 
 # pragma mark - UIPickerView methods

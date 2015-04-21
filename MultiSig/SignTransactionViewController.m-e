@@ -31,6 +31,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Targets
+
 -(void)didTapQrButton {
     _qr = [BTCQRCode scannerViewWithBlock:^(NSString *message) {
         [_ref didReturnFromQr:message];
@@ -62,6 +64,18 @@
     }
     NSString *url = [NSString stringWithFormat:@"transactions/%@/sighashes", txid];
     [[CoinbaseSingleton shared].client doGet:url parameters:nil completion:^(id result, NSError *error) {
+        if (error)
+        {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                           message:error.localizedDescription
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                [alert dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [alert addAction:cancelAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else {
         //response[transaction][inputs] first [sighash]
         // get through the mess of a response from coinbase
         NSDictionary *transaction = result[@"transaction"];
@@ -70,6 +84,7 @@
         
         NSLog(@"%@", input);
         [self didFinishFetchingTx:txid sighash:input[@"sighash"]];
+        }
     }];
 }
 
@@ -91,6 +106,7 @@
     }];
 }
 
+#pragma mark - Helpers
 
 -(NSString*) signHash:(NSString*)hash withKey:(BTCKey*)key {
     return [self convertDataToHexString:[key signatureForHash:[self convertHexStringToData:hash]]];
@@ -121,7 +137,7 @@
     return commandToSend;
 }
 
-
+#pragma mark - Alerts
 
 -(void)badTransactionId {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Empty TX" message:@"You cannot sign an empty transaction" delegate:nil cancelButtonTitle:nil otherButtonTitles:nil, nil];
