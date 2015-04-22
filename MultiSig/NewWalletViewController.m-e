@@ -49,11 +49,15 @@
 
 }
 
+#pragma mark - UITextFieldDelegate
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
 }
+
+#pragma mark - IBActions
 
 -(IBAction)newWalletButtonPressed:(id)sender
 {
@@ -83,6 +87,9 @@
         
     }];
 }
+
+#pragma mark - Targets
+
 -(void)didTapToDismissKeyboard {
     [self.view endEditing:YES];
     [self resignFirstResponder];
@@ -120,6 +127,13 @@
         _publicKeyThreeField.text = code; 
     }
 }
+
+#pragma mark - Helpers
+
+//-(BOOL)validateFields
+//{
+    //return ![self.walletNameField.text isEqualToString:@""] && self.publicKeyTwoField.text !+
+//}
 
 /*
 #pragma mark - Navigation
