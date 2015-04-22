@@ -17,6 +17,7 @@
     __block SignTransactionViewController *_ref;
     __block UIView *_qr;
     __block UIButton *_cancel;
+    __block NSString *_scannedKey;
 }
 
 - (void)viewDidLoad {
@@ -24,11 +25,38 @@
     _ref = self;
     [_signButton addTarget:self action:@selector(signButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [_qrButton addTarget:self action:@selector(didTapQrButton) forControlEvents:UIControlEventTouchUpInside];
+    [_scanKeyButton addTarget:self action:@selector(didTapScanKeyButton) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapToDismissKeyboard)];
+    [self.view addGestureRecognizer:dismissKeyboard];
+}
+
+-(void)didTapToDismissKeyboard {
+    [self.view endEditing:YES];
+    [self resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)didTapScanKeyButton {
+    NSString *txid = _transactionId.text;
+    if(txid == nil) {
+        [self badTransactionId];
+        return;
+    }
+    _qr = [BTCQRCode scannerViewWithBlock:^(NSString *message) {
+        [_ref didReturnFromKeyScanQr:message];
+    }];
+    _cancel = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 50, 50)];
+    [_cancel addTarget:self action:@selector(didCancelQr) forControlEvents:UIControlEventTouchUpInside];
+    [_cancel setTitle:@"X" forState:UIControlStateNormal];
+    [_cancel setBackgroundColor:[UIColor whiteColor]];
+    [_cancel setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [self.view addSubview:_qr];
+    [_qr addSubview:_cancel];
 }
 
 -(void)didTapQrButton {
@@ -42,6 +70,12 @@
     [_cancel setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.view addSubview:_qr];
     [_qr addSubview:_cancel];
+}
+
+-(void)didReturnFromKeyScanQr:(NSString*)message {
+    _scannedKey = message;
+    [_qr removeFromSuperview];
+    [self signButtonPressed];
 }
 
 -(void)didCancelQr {
@@ -67,24 +101,30 @@
         NSDictionary *transaction = result[@"transaction"];
         NSDictionary *input = [transaction[@"inputs"] firstObject];
         input = input[@"input"];
-        
         NSLog(@"%@", input);
-        [self didFinishFetchingTx:txid sighash:input[@"sighash"]];
+        NSString *nodePath = [input[@"address"][@"addresses"] firstObject][@"address"][@"node_path"];
+        nodePath = [nodePath stringByReplacingOccurrencesOfString:@"m/" withString:@""];
+        [self didFinishFetchingTx:txid sighash:input[@"sighash"] nodePath:[nodePath intValue]];
     }];
 }
 
--(void) didFinishFetchingTx:(NSString*)tx sighash:(NSString*)sighash {
-    BTCKeychain *keychain2 = [[BTCKeychain alloc] initWithExtendedKey:@"xprv9s21ZrQH143K3MrTYjdPt8zbgE6YVVfjrv4hJE3wLv3oGHG4Liv4kP1PE97gGbCPeHPoBB11HySK9N1VPuChb3LJuiP7NptoUyB9XCVfgFK"];
+-(void) didFinishFetchingTx:(NSString*)tx sighash:(NSString*)sighash nodePath:(int)nodePath{
+    //[address][addresses] firstObject [address] "node_path"
+    NSArray *sigArray;
+    if(_scannedKey != nil) {
+        BTCKeychain *keychain2 = [[BTCKeychain alloc] initWithExtendedKey:_scannedKey];
+         sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[keychain2 keyAtIndex:nodePath]],nil];
+        _scannedKey = nil; 
+    } else {
+        sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[[CoinbaseSingleton shared].keychain keyAtIndex:nodePath]],nil];
+    }
     NSString *putUrl = [NSString stringWithFormat:@"transactions/%@/signatures", tx];
-    NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[keychain2 keyAtIndex:1]],nil];
-    //NSArray *sigArray = [[NSArray alloc] initWithObjects:[self signHash:sighash withKey:[[CoinbaseSingleton shared].keychain keyAtIndex:0]],nil];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     params[@"signatures"] = [[NSMutableArray alloc] init];
     [params[@"signatures"] addObject:[NSMutableDictionary new]];
     NSMutableDictionary* test = (NSMutableDictionary*)[params[@"signatures"] firstObject];
     test[@"position"] = @1;
     test[@"signatures"] = sigArray;
-    
     [[CoinbaseSingleton shared].client doPut:putUrl parameters:params completion:^(id result, NSError *error) {
         NSLog(@"%@", result);
         NSLog(@"%@", error);
