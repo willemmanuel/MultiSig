@@ -56,9 +56,12 @@
     
     if ([[url scheme] isEqualToString:@"edu.self.multisig.coinbase-oauth"]) {
         // This is a redirect from the Coinbase OAuth web page or app.
+        NSString *path = [[NSBundle mainBundle] pathForResource:
+                          @"keys" ofType:@"plist"];
+        NSMutableDictionary *keys = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
         [CoinbaseOAuth finishOAuthAuthenticationForUrl:url
-                                              clientId:@"api_id"
-                                          clientSecret:@"api_secret"
+                                              clientId:[keys objectForKey:@"api_id"]
+                                          clientSecret:[keys objectForKey:@"api_secret"]
                                             completion:^(id result, NSError *error) {
                                                 if (error) {
                                                     NSLog(@"Error with authentication");
