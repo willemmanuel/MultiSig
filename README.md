@@ -1,12 +1,26 @@
 # MultiSig
-using [cocoapods](http://cocoapods.org/) for package management. install pods with `pod install`
+## A mobile, multisignature Bitcoin wallet powerd by Coinbase
+- [Motivation](#motivation)
+- [Libraries Used](#libraries)
+- [Architecture](#architecture)
+- [Screenshots](#screenshots)
+- [Extensions](#extensions)
 
-and open xcode with `open MultiSig.xcworkspace`
+### Motivation
+Multisignature wallets are a huge feature of Bitcoin. The use cases are endless--from multiperson escrow to There is currently no good option for mobile multisignature wallets. 
 
-[coinbase multisig api documentation](https://developers.coinbase.com/api#multisig)
+### Libraries
+For dependency management, [Cocoa pods](https://cocoapods.org/) were used. All dependencies can be installed by running `pod install` from the root directory. The project can then be opened with `open MultiSig.xcworkspace`. 
 
-[ios qr encoder](https://www.cocoacontrols.com/controls/objqrencoder)
+[Core bitcoin](https://github.com/oleganza/CoreBitcoin) was used for all crypto. This library is used to generate hiearchical deterministic wallets (explained in [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)). It is also used to generate key pairs from that wallet, to sign transactions, and read/generate QR codes.
 
-[tutorial for reading qr codes w/ av foundation](http://www.appcoda.com/qr-code-reader-swift/)
+The [Coinbase SDK](https://github.com/joshbeal/coinbase-ios-sdk) is used to interact with a user's Coinbase account. Coinbase is used to keep track of signatures and propogate transactions.
 
-[core bitcoin library](https://github.com/oleganza/CoreBitcoin) - might be needed for key pair generation?
+[SSKeychain](https://github.com/soffes/sskeychain) is used to securely store private keys in the iOS keychain. 
+
+### Architecture
+This app is a proof of concep
+
+### Screenshots
+
+### Extensions
