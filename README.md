@@ -10,7 +10,7 @@
 **NOTE:** This is a proof of concept. Use at your own risk, and only deposit any funds you can risk losing. 
 
 ### Motivation
-Multisignature wallets are a huge feature of Bitcoin. The use cases are endless--from multiperson escrow to shared accounts. There is currently no good option for mobile multisignature wallets. 
+Multisignature wallets are a huge feature of Bitcoin. The use cases are endless--from multiperson escrow to shared accounts. There is currently no good option for iOS mobile multisignature wallets, so we aimed to create the first. 
 
 ### Libraries
 For dependency management, [Cocoa pods](https://cocoapods.org/) were used. All dependencies can be installed by running `pod install` from the root directory. The project can then be opened with `open MultiSig.xcworkspace`. 
