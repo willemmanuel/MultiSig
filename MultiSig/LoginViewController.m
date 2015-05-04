@@ -47,8 +47,11 @@
 }
 -(void)didPressLogin
 {
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"keys" ofType:@"plist"];
+    NSMutableDictionary *keys = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     NSDictionary *meta = @{@"send_limit_amount":@"50", @"send_limit_currency":@"USD"};
-        [CoinbaseOAuth startOAuthAuthenticationWithClientId:@"api_id"
+        [CoinbaseOAuth startOAuthAuthenticationWithClientId:[keys objectForKey:@"api_id"]
                                                       scope:@"user send transactions addresses"
                                                 redirectUri:@"edu.self.multisig.coinbase-oauth://coinbase-oauth"
                                                        meta:meta];

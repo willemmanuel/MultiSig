@@ -19,6 +19,7 @@
 		BE31A65E1AE190DB00B0BCDC /* wallet.png in Resources */ = {isa = PBXBuildFile; fileRef = BE31A65B1AE190DB00B0BCDC /* wallet.png */; };
 		BE3E8CA01AE36CB70027C22D /* InitialNewTransactionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3E8C9F1AE36CB70027C22D /* InitialNewTransactionViewController.m */; };
 		BE3E8CA31AE422750027C22D /* PickWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE3E8CA21AE422750027C22D /* PickWalletViewController.m */; };
+		BE5287A31AF6F57A0038E526 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE5287A21AF6F57A0038E526 /* keys.plist */; };
 		BEC5ED351AC9DF1800C6CA97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED341AC9DF1800C6CA97 /* main.m */; };
 		BEC5ED381AC9DF1800C6CA97 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED371AC9DF1800C6CA97 /* AppDelegate.m */; };
 		BEC5ED3B1AC9DF1800C6CA97 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC5ED3A1AC9DF1800C6CA97 /* LoginViewController.m */; };
@@ -60,6 +61,7 @@
 		BE3E8C9F1AE36CB70027C22D /* InitialNewTransactionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialNewTransactionViewController.m; sourceTree = "<group>"; };
 		BE3E8CA11AE422750027C22D /* PickWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickWalletViewController.h; sourceTree = "<group>"; };
 		BE3E8CA21AE422750027C22D /* PickWalletViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickWalletViewController.m; sourceTree = "<group>"; };
+		BE5287A21AF6F57A0038E526 /* keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		BEC5ED2F1AC9DF1800C6CA97 /* MultiSig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEC5ED331AC9DF1800C6CA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEC5ED341AC9DF1800C6CA97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				BE31A6591AE190DB00B0BCDC /* sign.png */,
 				BE31A65A1AE190DB00B0BCDC /* transaction.png */,
+				BE5287A21AF6F57A0038E526 /* keys.plist */,
 				BE31A65B1AE190DB00B0BCDC /* wallet.png */,
 				BEC5ED331AC9DF1800C6CA97 /* Info.plist */,
 				BEC5ED341AC9DF1800C6CA97 /* main.m */,
@@ -274,6 +277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE5287A31AF6F57A0038E526 /* keys.plist in Resources */,
 				BE31A65C1AE190DB00B0BCDC /* sign.png in Resources */,
 				BE31A65D1AE190DB00B0BCDC /* transaction.png in Resources */,
 				BEC5ED3E1AC9DF1800C6CA97 /* Main.storyboard in Resources */,
