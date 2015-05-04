@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *createTxButton;
 @property (weak, nonatomic) IBOutlet UIButton *qrButton;
 
+
+
 @end

@@ -117,7 +117,7 @@
         NSString *nodePath = [input[@"address"][@"addresses"] firstObject][@"address"][@"node_path"];
         nodePath = [nodePath stringByReplacingOccurrencesOfString:@"m/" withString:@""];
         [self didFinishFetchingTx:txid sighash:input[@"sighash"] nodePath:[nodePath intValue]];
-    }];
+    }}];
 }
 
 -(void) didFinishFetchingTx:(NSString*)tx sighash:(NSString*)sighash nodePath:(int)nodePath{
