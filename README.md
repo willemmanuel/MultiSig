@@ -1,5 +1,5 @@
 # MultiSig
-## A mobile, multisignature Bitcoin wallet powerd by Coinbase
+## A mobile, multisignature Bitcoin wallet powered by Coinbase
 - [Motivation](#motivation)
 - [Libraries Used](#libraries)
 - [Architecture](#architecture)
@@ -7,7 +7,7 @@
 - [Extensions](#extensions)
 
 ### Motivation
-Multisignature wallets are a huge feature of Bitcoin. The use cases are endless--from multiperson escrow to There is currently no good option for mobile multisignature wallets. 
+Multisignature wallets are a huge feature of Bitcoin. The use cases are endless--from multiperson escrow to shared accounts. There is currently no good option for mobile multisignature wallets. 
 
 ### Libraries
 For dependency management, [Cocoa pods](https://cocoapods.org/) were used. All dependencies can be installed by running `pod install` from the root directory. The project can then be opened with `open MultiSig.xcworkspace`. 
@@ -19,8 +19,17 @@ The [Coinbase SDK](https://github.com/joshbeal/coinbase-ios-sdk) is used to inte
 [SSKeychain](https://github.com/soffes/sskeychain) is used to securely store private keys in the iOS keychain. 
 
 ### Architecture
-This app is a proof of concep
+
+This app is a proof of concept that demonstrates multisignature wallets and transactions on an iOS device. First the user creates an account with Coinbase and signs in. Then a public/private keypair is generated on the iOS device. To create a wallet, the other public keys can be scanned via QR codes. The public keys are then sent to Coinbase and a new wallet is created. To spend from the wallet, one of the users creates a new transaction request and sends it to Coinbase. The user can share the transaction id with other members of the wallet for signing. They can fetch the transacrion, sign it, and sned it back to Coinbase. Once enough signatures have been collected, Coinbase executes the transaction. 
 
 ### Screenshots
 
+
+
 ### Extensions
+
+* Options for more public keys / required signatures
+* Generate new public key
+* Display shared account info
+* Interface directly with bitcoin network and bypass Coinbase
+ 
