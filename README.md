@@ -24,7 +24,10 @@ This app is a proof of concept that demonstrates multisignature wallets and tran
 
 ### Screenshots
 
-
+<img src="screenshots/screenshot-1.PNG" alt="Wallet" width="200">
+<img src="screenshots/screenshot-2.PNG" alt="New Wallet" width="200">
+<img src="screenshots/screenshot-3.PNG" alt="QR" width="200">
+<img src="screenshots/screenshot-4.PNG" alt="Sign Transaction" width="200">
 
 ### Extensions
 
